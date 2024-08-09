@@ -31,10 +31,10 @@ export const signup = async (req, res) => {
 };
 
 export const login = async(req, res)=> {
+    const {email, password} = req.body;
     try {
-        const {email, password} = req.body;
-        const user = User.findOne({email})
-        const isMatch = bcrypt.compare(password, user.password)
+        const user = await User.findOne({email})
+        const isMatch = await bcrypt.compare(password, user.password)
         if(!user || !isMatch) {
             return res.status(400).json({error: "invalid user credential"});
         }
@@ -46,7 +46,20 @@ export const login = async(req, res)=> {
         }});
         
     } catch (error) {
-        console.log({error: "internal server error"});
+        console.log(error);
+       res.status(500).json({error: "internal server error"})
+        
+    }
+}
+
+
+export const logout = async(req, res) =>{
+    try {
+        res.clearCookie("jwt")
+        res.status(201).json({message: "User logged out successfully"})
+    } catch (error) {
+       console.log(error);
+       res.status(500).json({error: "internal server error"})
         
     }
 }
