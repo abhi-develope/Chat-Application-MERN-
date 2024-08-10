@@ -2,6 +2,7 @@ import React from 'react'
 import Profile from './home/leftside/Profilebox'
 import Chat from './home/rightside/Chatbox'
 import Signup from './components/Signup'
+import Login from './components/Login'
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
     //   <Chat/>
     // </div>
     <div>
-      <Signup/>
+      {/* <Signup/> */}
+      <Login/>
     </div>
   )
 }
