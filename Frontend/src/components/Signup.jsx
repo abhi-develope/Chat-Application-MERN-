@@ -33,9 +33,12 @@ function Signup() {
 
                 alert("signup successful")
             }
+            localStorage.setItem("chatApp", JSON.stringify(response.data));
            
-        }).catch((err) => {
-           console.log(err); 
+        }).catch((error) => {
+           if(error.response){
+            alert("error:" + error.response.data.error)
+           } 
         });
         
       }
