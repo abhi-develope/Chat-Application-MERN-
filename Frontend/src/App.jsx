@@ -11,8 +11,8 @@ function App() {
     //   <Chat/>
     // </div>
     <div>
-      <Signup/>
-      {/* <Login/> */}
+      {/* <Signup/> */}
+      <Login/>
     </div>
   )
 }
