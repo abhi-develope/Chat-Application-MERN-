@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form"
 
 function Login() {
+  const [authUser, setAuthUser] = useAuth()
 
     const {
         register,
@@ -25,6 +26,7 @@ function Login() {
                 alert("login successful")
             }
             localStorage.setItem("chatApp", JSON.stringify(response.data));
+            setAuthUser(response.data);
            
         }).catch((error) => {
            if(error.response){
