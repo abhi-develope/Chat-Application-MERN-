@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors"
 import userRoute from "./routes/user.route.js";
-import cookie from "cookie-parser" 
-import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser" 
+
 const app = express();
 
 dotenv.config();
@@ -24,7 +24,7 @@ try {
   console.log(error);
 }
 
-app.use("/user", userRoute);
+app.use("/api/user", userRoute);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
