@@ -71,9 +71,10 @@ export const logout = async(req, res) =>{
 
 export const allUsers = async (req, res) => {
   try {
-    const allUsers = await User.find().select("-password");
+    const loggedInUser = req.user._id;
+    const fillteredUsers = await User.find({_id: {$ne: loggedInUser}}).select("-password");
     res.status(201).json(
-      allUsers,
+      fillteredUsers,
     );
     
   } catch (error) {
