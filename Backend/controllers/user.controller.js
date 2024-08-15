@@ -67,3 +67,16 @@ export const logout = async(req, res) =>{
         
     }
 }
+
+
+export const allUsers = async (req, res) => {
+  try {
+    const allUsers = await User.find().select("-password");
+    res.status(201).json(
+      allUsers,
+    );
+    
+  } catch (error) {
+    console.log("error in allUsers controller" + error);
+  }
+}
