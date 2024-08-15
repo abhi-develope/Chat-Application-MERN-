@@ -11,14 +11,14 @@ function useAllUsers() {
             setLoading(true)
             try {
                 const token = Cookies.get("jwt")
-                const response = await axios.get("http://localhost:3000/user/allusers", {
+                const response = await axios.get("/api/user/allusers", {
                     credentials: "include",
                     headers:{
                         Authorization: `Bearer ${token}`
                     }
                 })
                 setAllUsers(response.data)
-                setLoading(falsde)
+                setLoading(false)
                 
             } catch (error) {
                console.log("error in useAllUser:" + error); 

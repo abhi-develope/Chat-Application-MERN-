@@ -1,6 +1,6 @@
 import React from "react";
 
-function User() {
+function User({user}) {
   return (
     <div>
       <div className="flex space-x-4 p-4  hover:bg-slate-600 duration-300 cursor-pointer ">
@@ -10,8 +10,8 @@ function User() {
           </div>
         </div>
         <div>
-          <p className="text-white ">Abhishek Prajapati</p>
-          <p className="text-sm">abhishek320@gmail.com</p>
+          <p className="text-white ">{user.fullname}</p>
+          <p className="text-sm">{user.email}</p>
         </div>
       </div>
     </div>

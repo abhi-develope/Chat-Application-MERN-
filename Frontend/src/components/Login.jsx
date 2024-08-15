@@ -21,7 +21,7 @@ function Login() {
             
         }
         // console.log(userInfo);
-        axios.post("http://localhost:3000/user/login", userInfo).then((response) => {
+        axios.post("/api/user/login", userInfo).then((response) => {
             console.log(response.data);
             if(response.data){
 
