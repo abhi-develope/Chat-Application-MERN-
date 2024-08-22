@@ -4,7 +4,7 @@ import useAllUsers from "../../context/useAllUsers";
 
 function Users() {
   const [allUsers,loading] = useAllUsers()
-  console.log(allUsers);
+  // console.log(allUsers);
   return (
     <div>
       <p className="px-2 py-1 bg-slate-400 text-white mt-2">Messages</p>

@@ -1,16 +1,16 @@
 import React from "react";
 
-const Messages = () => {
+const Messages = ({message}) => {
   return (
     <div>
       <div className="chat chat-start">
         <div className="chat-bubble">
-          It's over Anakin,
-          <br />I have the high ground.
+         hi Abhishek
         </div>
       </div>
       <div className="chat chat-end">
-        <div className="chat-bubble chat-bubble-success">You underestimate my power!</div>
+        <div className="chat-bubble chat-bubble-success"> {message.message}
+        </div>
       </div>
     </div>
   );
