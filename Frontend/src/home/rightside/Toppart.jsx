@@ -12,7 +12,7 @@ function Toppart() {
         </div>
       </div>
       <div>
-          <p className="text-white ">{selectedConversation.fullname}</p>
+          <p className="text-white ">hello</p>
           <p className="text-sm text-black ">Online</p>
         </div>
     </div>
