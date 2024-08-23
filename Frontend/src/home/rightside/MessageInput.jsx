@@ -12,7 +12,7 @@ function MessageInput() {
         className="input input-bordered input-secondary w-full  "
       />
        </div>
-    <GrSend className="text-4xl text-[#ff0000] " />
+    <GrSend className="text-4xl text-white " />
     </div>
    
     </>
