@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Toppart from "./Toppart";
 import Messages from "./Messages";
 import MessageInput from "./MessageInput";
@@ -8,6 +8,16 @@ import Loading from "../../components/Loading.jsx"
 function Chat() {
   const {loading, messages} = useGetMessage();
   console.log(messages);
+
+  const lastMsgRef = useRef()
+  useEffect(()=>{
+    setTimeout(()=>{
+      if(lastMsgRef.current){
+        lastMsgRef.current.scrollIntoView({behavior: "smooth"})
+      }
+    },100)
+  },[messages])
+
   return <div className=" w-[70%]  bg-[hsl(50,5%,77%)] ">
     <Toppart/> 
     <div className="overflow-y-auto cool-scrollbar" style={{ maxHeight: "calc(77vh)" }}>
