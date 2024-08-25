@@ -11,6 +11,7 @@ function MessageInput() {
     await sendMessages(message);
     setMessage("");
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>

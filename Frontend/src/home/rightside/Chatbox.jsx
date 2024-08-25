@@ -7,7 +7,7 @@ import Loading from "../../components/Loading.jsx"
 
 function Chat() {
   const {loading, messages} = useGetMessage();
-  console.log(messages);
+  // console.log(messages);
 
   const lastMsgRef = useRef()
   useEffect(()=>{
@@ -18,12 +18,15 @@ function Chat() {
     },100)
   },[messages])
 
-  return <div className=" w-[70%]  bg-[hsl(50,5%,77%)] ">
+  return ( 
+  <div className=" w-[70%]  bg-[hsl(50,5%,77%)] ">
     <Toppart/> 
     <div className="overflow-y-auto cool-scrollbar" style={{ maxHeight: "calc(77vh)" }}>
     <div style={{ minHeight: "calc(83vh)" }}>
 
-      {loading?(<Loading/>):(messages.length > 0 && messages.map((message)=>(<Messages key={message._id} message={message}/>)))}
+      {loading?(<Loading/>):(messages.length > 0 && messages.map((message, index)=>(<Messages key={message._id || index} message={message}/>)))}
+
+    
 
       {!loading && messages.length ===0 && (
         <div>
@@ -37,6 +40,7 @@ function Chat() {
     <MessageInput/>
     
   </div>
+  )
 }
  
 export default Chat;
