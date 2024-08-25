@@ -5,6 +5,8 @@ import MessageInput from "./MessageInput";
 import useGetMessage from "../../context/useGetMessage.js";
 import Loading from "../../components/Loading.jsx"
 import useConversation from "../../zustand/useConversation.js";
+import NoConversationSelected from "./NoConversationSelected.jsx"
+
 
 function Chat() {
   const {loading, messages} = useGetMessage();
@@ -30,7 +32,7 @@ function Chat() {
 
   return ( 
   <div>
-    {!selectedConversation?(<Loading/>):(<>
+    {!selectedConversation?(<NoConversationSelected/>):(<>
     <div className=" w-[70%]  bg-[hsl(50,5%,77%)] ">
     <Toppart/> 
     <div className="overflow-y-auto cool-scrollbar" style={{ maxHeight: "calc(77vh)" }}>
