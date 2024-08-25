@@ -27,10 +27,7 @@ export const sendMessage = async (req, res) => {
        // await conversation.save()
        // await newMessage.save()
        await Promise.all([conversation.save(),newMessage.save()]); // save both array data at once
-       res.status(201).json({
-        message: "Message sent successfully",
-        newMessage
-       })
+       res.status(201).json(newMessage)
     } catch (error) {
        console.log("Error in sendMessage", error); 
        res.status(500).json({error: "Internal server error"})
