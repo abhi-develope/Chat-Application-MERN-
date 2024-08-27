@@ -23,9 +23,14 @@ io.on("connection", (socket) => {
     console.log("userId", users);
   }
 
+  //used to send the events to all connected users
+  io.emit("getOnlineUsers", Object.keys(users));
+
   // used to listen client side events emitted by server and client
   socket.on("disconnect", () => {
     console.log("a user disconnected", socket.id);
+    delete users[userId];
+    io.emit("getOnlineUsers", Object.keys(users))
   });
 });
 
