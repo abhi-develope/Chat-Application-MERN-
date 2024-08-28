@@ -7,8 +7,6 @@ import Loading from "../../components/Loading.jsx";
 import useConversation from "../../zustand/useConversation.js";
 import NoChatSelected from "./NoChatSelected.jsx";
 
-
-
 function Chat() {
   const { loading, messages } = useGetMessage();
   // console.log(messages);
@@ -31,12 +29,12 @@ function Chat() {
   }, [setSelectedConversation]);
 
   return (
-      <div className=" w-[70%]  bg-[hsl(60,2%,34%)] ">
-    <div>
-      {!selectedConversation ? (
-        <NoChatSelected/>
-      ) : (
-        <>
+    <div className=" w-[70%]  bg-[hsl(60,2%,34%)] ">
+      <div>
+        {!selectedConversation ? (
+          <NoChatSelected />
+        ) : (
+          <>
             <Toppart />
             <div
               className="overflow-y-auto cool-scrollbar"
@@ -48,7 +46,9 @@ function Chat() {
                 ) : (
                   messages.length > 0 &&
                   messages.map((message, index) => (
-                    <Messages key={message._id || index} message={message} />
+                    <div key={message._id || index} ref={lastMsgRef}>
+                      <Messages message={message} />
+                    </div>
                   ))
                 )}
 
@@ -62,10 +62,10 @@ function Chat() {
               </div>
             </div>
             <MessageInput />
-        </>
-      )}
-    </div>
+          </>
+        )}
       </div>
+    </div>
   );
 }
 
