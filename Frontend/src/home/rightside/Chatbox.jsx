@@ -6,10 +6,13 @@ import useGetMessage from "../../context/useGetMessage.js";
 import Loading from "../../components/Loading.jsx";
 import useConversation from "../../zustand/useConversation.js";
 import NoChatSelected from "./NoChatSelected.jsx";
+import useGetSocketMessage from "../../context/useGetSocketMessage.jsx";
 
 function Chat() {
   const { loading, messages } = useGetMessage();
   // console.log(messages);
+  useGetSocketMessage(); // listing incoming messages
+  
 
   // for scrolling automated msg
   const lastMsgRef = useRef();

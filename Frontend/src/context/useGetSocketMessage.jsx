@@ -7,8 +7,11 @@
     const {messages, setMessage} = useConversation()
 
     useEffect(()=>{
+        if (!socket) return;
+
+
        socket.on("newMessage", (newMessage) => {
-        setMessage([...message, newMessage]);
+        setMessage([...messages, newMessage]);
        }) 
        return () => {
         socket.off("newMessage");
