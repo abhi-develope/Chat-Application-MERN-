@@ -5,13 +5,14 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import { useAuth } from './context/Authprovider'
 import { Navigate, Route, Routes } from "react-router-dom"
-import Loading from './components/Loading'
+import  { Toaster } from 'react-hot-toast';
 
 function App() {
   const [authUser, setAuthuser]= useAuth()
   console.log(authUser);
   return (
     
+   <>
     <Routes>
       <Route path="/" element={authUser? (<div className='flex h-screen'> 
       <Profile/>
@@ -20,7 +21,9 @@ function App() {
     <Route path='/login' element={authUser? <Navigate to="/"/>:<Login/>} />
     <Route path='/signup'element={authUser? <Navigate to="/"/>: <Signup/>} />
     </Routes>
+    <Toaster/>
 
+   </>
    
 
 

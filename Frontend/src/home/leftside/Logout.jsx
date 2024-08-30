@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { BiLogOutCircle } from "react-icons/bi";
 import axios from "axios"
 import Cookies from "js-cookie"
+import toast from 'react-hot-toast';
 
 function Logout() {
   const[loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ function Logout() {
       localStorage.removeItem("chatApp")
       Cookies.remove("jwt");
       setLoading(false);
-      alert("logged out successfully")
+      toast.error("logged out successfully")
       window.location.reload();
     } catch (error) {
       console.log("error in logout", error);
