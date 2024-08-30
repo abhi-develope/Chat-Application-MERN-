@@ -32,3 +32,21 @@
     background: #004F4F; /* Background color/gradient of the corner */
   }
 }
+
+
+
+
+.no-scrollbar {
+  overflow: auto; /* Keep scrolling functionality */
+
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+
+  /* Hide scrollbar for WebKit browsers */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+}
+

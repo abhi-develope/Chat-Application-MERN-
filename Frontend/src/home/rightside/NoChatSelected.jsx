@@ -1,9 +1,21 @@
 import React from 'react'
 import { useAuth } from '../../context/Authprovider';
+import { CiMenuFries } from "react-icons/ci";
+
 
 const NoChatSelected = () => {
     const [authUser] = useAuth();
   return (
+   <>
+    <div className="relative">
+        <label
+          htmlFor="my-drawer-2"
+          className="btn btn-ghost drawer-button lg:hidden absolute left-5"
+        >
+          <CiMenuFries className="text-white text-xl" />
+        </label>
+   
+   
     <div className="flex h-screen items-center justify-center">
       <h1 className="text-center">
         Welcome{" "}
@@ -15,7 +27,11 @@ const NoChatSelected = () => {
         contacts
       </h1>
     </div>
+    </div>
+    
+
   
+   </>
   )
 }
 

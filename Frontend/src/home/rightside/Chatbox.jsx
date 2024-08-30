@@ -32,7 +32,7 @@ function Chat() {
   }, [setSelectedConversation]);
 
   return (
-    <div className=" w-[70%]  bg-[hsl(60,2%,34%)] ">
+    <div className=" w-full bg-[hsl(60,2%,34%)] ">
       <div>
         {!selectedConversation ? (
           <NoChatSelected />
