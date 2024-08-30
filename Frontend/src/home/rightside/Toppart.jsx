@@ -25,7 +25,7 @@ function Toppart() {
 
 
     <div className="w-full justify-center bg-slate-600 items-center flex space-x-2 p-1  ">
-      <div className={`avatar ${isOnline?"online": ""}`}>
+      <div className={`avatar ${isOnline?"online z-0": ""}`}>
         <div className="w-20 rounded-full">
           <img src="../img/dp2.jpg" />
         </div>

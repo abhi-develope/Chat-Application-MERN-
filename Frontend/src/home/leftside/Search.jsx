@@ -23,7 +23,7 @@ function Search() {
   }
   return (
     <form onSubmit={handelSubmit}>
-      <div className="flex items-center space-x-3 justify-center pt-2 ">
+      <div className="flex items-center space-x-3 justify-center pt-2 z-50">
         <input
           type="text"
           placeholder="Search"
