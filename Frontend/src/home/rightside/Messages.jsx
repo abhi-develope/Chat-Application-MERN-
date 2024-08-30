@@ -17,7 +17,7 @@ const Messages = ({message}) => {
       <div className={`chat ${chatName}`}>
         <div className={`chat-bubble text-white ${chatColor}`}> {message.message}
         </div>
-        <div className="chat-footer">{formattedTime}</div>
+        <div className="chat-footer text-xs">{formattedTime}</div>
       </div>
     </div>
   );
