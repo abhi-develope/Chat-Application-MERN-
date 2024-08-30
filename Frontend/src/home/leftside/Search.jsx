@@ -1,16 +1,41 @@
-import React from 'react'
+import React, { useState } from "react";
 import { ImSearch } from "react-icons/im";
+import useGetAllUsers from "../../context/useAllUsers";
+import useConversation from "../../zustand/useConversation";
 
 function Search() {
+  const [search, setSearch] = useState("");
+  const [allUsers] = useGetAllUsers();
+  const { setSelectedConversation } = useConversation();
+
+  const handelSubmit = (e) =>{
+    e.preventDefault();
+    if(!search) return;
+    const conversation = allUsers.find((user)=>user.fullname.toLowerCase().includes(search.toLowerCase()))
+
+    if(conversation){
+      setSelectedConversation(conversation);
+      setSearch("");
+    }else{
+      alert("User not found")
+    }
+  }
   return (
-    <div className='flex items-center space-x-3 justify-center pt-2 '>
-       <input
-  type="text"
-  placeholder="Search"
-  className="input input-bordered input-secondary w-full max-w-xs" /> 
-      <ImSearch className='text-3xl text-[#00ffff] cursor-pointer' />
-    </div>
-  )
+    <form onSubmit={handelSubmit}>
+      <div className="flex items-center space-x-3 justify-center pt-2 ">
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="input input-bordered input-secondary w-full max-w-xs"
+        />
+        <button>
+        <ImSearch className="text-3xl text-[#00ffff] cursor-pointer" />
+        </button>
+      </div>
+    </form>
+  );
 }
 
-export default Search
+export default Search;
